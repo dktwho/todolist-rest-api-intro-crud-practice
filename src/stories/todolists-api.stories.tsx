@@ -14,14 +14,14 @@ export const GetTodolists = () => {
 export const CreateTodolist = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        todolistAPI.createTodolist('NEW TODOLIST').then((res) => setState(res.data))
+        todolistAPI.createTodolist('NEW TL').then((res) => setState(res.data.data))
     }, [])
     return <div>{JSON.stringify(state)}</div>
 }
 export const DeleteTodolist = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        const todoIdToRemove = '468a4e66-7acc-4310-9a5f-cade18f5df07'
+        const todoIdToRemove = '47c8730b-3818-4292-a3d0-6bf7d7c30c72'
         todolistAPI.deleteTodolist(todoIdToRemove).then((res) => setState(res.data))
     }, [])
     return <div>{JSON.stringify(state)}</div>
