@@ -22,6 +22,27 @@ type TodolistType = {
     title: string,
 }
 
+export type GetTasksResponseType = {
+    items: TaskType[]
+    totalCount: number
+    error: string | null
+}
+
+
+export type TaskType = {
+    description: string
+    title: string
+    completed: boolean
+    status: number
+    priority: number
+    startDate: Date
+    deadline: Date
+    id: string
+    todoListId: string
+    order: number
+    addedDate: Date
+}
+
 export const todolistAPI = {
     getTodolists() {
         return instance.get<TodolistType[]>(`todo-lists`)
@@ -35,4 +56,8 @@ export const todolistAPI = {
     updateTitleTodolist(todoId: string, title: string) {
         return instance.put<ResponseType>(`todo-lists/${todoId}`, {title})
     },
+}
+
+export const tasksAPI = {
+
 }
