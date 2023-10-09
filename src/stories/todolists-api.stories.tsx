@@ -74,7 +74,7 @@ export const UpdateTodolistTask = () => {
         const todoId = '916408aa-f8a3-49b3-b9ae-b21b615c1b1e'
         const taskId = '5e6103f7-4ac2-4656-ac79-3517f554d26f'
         const title = 'NEW NEW  task Angular 2'
-        todolistAPI.updateTodolistTask(todoId, taskId, title )
+        todolistAPI.updateTodolistTask(todoId, taskId, title)
             .then((res) => setState(res.data))
     }, [])
     return <div>{JSON.stringify(state)}</div>
