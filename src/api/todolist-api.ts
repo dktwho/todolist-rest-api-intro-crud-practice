@@ -19,6 +19,7 @@ type TodolistType = {
 type DeleteTodolistType = {
     resultCode: number
     messages: string[],
+    fieldsErrors: []
     data: {}
 }
 
@@ -28,6 +29,14 @@ type CreateTodolistType = {
     };
     messages: string[];
     resultCode: number;
+    fieldsErrors: []
+}
+
+type UpdateTodolistType = {
+    resultCode: number
+    messages: string[],
+    data: {},
+    fieldsErrors: []
 }
 
 export const todolistAPI = {
@@ -41,6 +50,6 @@ export const todolistAPI = {
         return instance.delete<DeleteTodolistType>(`todo-lists/${todoId}`)
     },
     updateTitleTodolist(todoId: string, title: string) {
-        return instance.put(`todo-lists/${todoId}`, {title})
+        return instance.put<UpdateTodolistType>(`todo-lists/${todoId}`, {title})
     },
 }
