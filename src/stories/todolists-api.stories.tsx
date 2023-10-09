@@ -33,7 +33,7 @@ export const CreateTodolist = () => {
 export const DeleteTodolist = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
-        axios.delete(`https://social-network.samuraijs.com/api/1.1/todo-lists/c661ec09-5fb9-4809-b439-39073ace2211`, settings)
+        axios.delete(`https://social-network.samuraijs.com/api/1.1/todo-lists/e1e08555-b364-4bd4-aed7-646c22cb4c41`, settings)
             .then((res) => setState(res.data))
     }, [])
 
@@ -42,6 +42,8 @@ export const DeleteTodolist = () => {
 export const UpdateTodolistTitle = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
+        axios.put(`https://social-network.samuraijs.com/api/1.1/todo-lists/751d1638-1db1-48ae-9328-d050d83363c4`, {title: 'VUE 4 with Vuex'}, settings)
+            .then((res) => setState(res.data))
     }, [])
 
     return <div>{JSON.stringify(state)}</div>
