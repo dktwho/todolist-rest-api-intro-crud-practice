@@ -11,10 +11,13 @@ export const todolistAPI = {
     getTodolists() {
         return axios.get(`https://social-network.samuraijs.com/api/1.1/todo-lists`, settings)
     },
-    createTodolists() {
+    createTodolist() {
         return axios.post(`https://social-network.samuraijs.com/api/1.1/todo-lists`, {title: 'NEW-TITLE'}, settings)
     },
-    deleteTodolists() {
+    deleteTodolist() {
         return axios.delete(`https://social-network.samuraijs.com/api/1.1/todo-lists/e1e08555-b364-4bd4-aed7-646c22cb4c41`, settings)
+    },
+    updateTitleTodolist() {
+        return axios.put(`https://social-network.samuraijs.com/api/1.1/todo-lists/0ee46050-5ee9-4c00-9a44-7da2bcd01114`, {title: 'React 18 with Redux'}, settings)
     },
 }
