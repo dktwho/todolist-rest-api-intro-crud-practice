@@ -10,5 +10,8 @@ const settings = {
 export const todolistAPI = {
     getTodolists() {
         return axios.get(`https://social-network.samuraijs.com/api/1.1/todo-lists`, settings)
+    },
+    createTodolists() {
+        return axios.post(`https://social-network.samuraijs.com/api/1.1/todo-lists`, {title: 'NEW-TITLE'}, settings)
     }
 }
