@@ -1,23 +1,25 @@
 import axios from 'axios'
 
-const settings = {
+
+const instance = axios.create({
+    baseURL: 'https://social-network.samuraijs.com/api/1.1/',
     withCredentials: true,
     headers: {
-        'API-KEY': 'f31ffa20-0ff3-4086-b0e8-28ca7dcbaac2',
+        'API-KEY': '794181ab-6d62-4cfb-bc9f-d539dfac55f1',
     },
-}
+})
 
 export const todolistAPI = {
     getTodolists() {
-        return axios.get(`https://social-network.samuraijs.com/api/1.1/todo-lists`, settings)
+        return instance.get(`todo-lists`)
     },
     createTodolist() {
-        return axios.post(`https://social-network.samuraijs.com/api/1.1/todo-lists`, {title: 'NEW-TITLE'}, settings)
+        return instance.post(`todo-lists`, {title: 'NEW-TITLE'})
     },
     deleteTodolist() {
-        return axios.delete(`https://social-network.samuraijs.com/api/1.1/todo-lists/e1e08555-b364-4bd4-aed7-646c22cb4c41`, settings)
+        return instance.delete(`todo-lists/c3eb188a-be28-4508-a5e1-fd3acd0bff03`)
     },
     updateTitleTodolist() {
-        return axios.put(`https://social-network.samuraijs.com/api/1.1/todo-lists/0ee46050-5ee9-4c00-9a44-7da2bcd01114`, {title: 'React 18 with Redux'}, settings)
+        return instance.put(`todo-lists/916408aa-f8a3-49b3-b9ae-b21b615c1b1e`, {title: 'ANGULAR v10'})
     },
 }
