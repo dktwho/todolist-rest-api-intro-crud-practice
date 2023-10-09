@@ -13,13 +13,13 @@ export const todolistAPI = {
     getTodolists() {
         return instance.get(`todo-lists`)
     },
-    createTodolist() {
-        return instance.post(`todo-lists`, {title: 'NEW-TITLE'})
+    createTodolist(title: string) {
+        return instance.post(`todo-lists`, {title})
     },
-    deleteTodolist() {
-        return instance.delete(`todo-lists/c3eb188a-be28-4508-a5e1-fd3acd0bff03`)
+    deleteTodolist(todoId: string) {
+        return instance.delete(`todo-lists/${todoId}`)
     },
-    updateTitleTodolist() {
-        return instance.put(`todo-lists/916408aa-f8a3-49b3-b9ae-b21b615c1b1e`, {title: 'ANGULAR v10'})
+    updateTitleTodolist(todoId: string, title: string) {
+        return instance.put(`todo-lists/${todoId}`, {title})
     },
 }
