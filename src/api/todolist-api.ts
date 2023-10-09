@@ -9,9 +9,17 @@ const instance = axios.create({
     },
 })
 
+type TodolistType = {
+    id: string
+    addedDate: Date
+    order: number
+    title: string
+}
+
+
 export const todolistAPI = {
     getTodolists() {
-        return instance.get(`todo-lists`)
+        return instance.get<TodolistType[]>(`todo-lists`)
     },
     createTodolist(title: string) {
         return instance.post(`todo-lists`, {title})
